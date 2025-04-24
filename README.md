@@ -2,17 +2,35 @@ Este aplicativo possui um sistema de autenticação simples. Se as credenciais f
 
 Se preferir apenas testar rapidamente o funcionamento, utilize uma das credenciais abaixo:
 
-👤 Conta 1 – Testar login padrão
-👨‍🏫 Nome do usuário: Professor Luis
-📧 E-mail: luisprof@gmail.com
-🔒 Senha: 123456
-Use esta conta caso queira apenas testar o funcionamento básico do login.
+👤 **Conta 1 – Testar login padrão**  
+👨‍🏫 Nome do usuário: Professor Luis  
+📧 E-mail: luisprof@gmail.com  
+🔒 Senha: 123456  
+*Use esta conta caso queira apenas testar o funcionamento básico do login.*
 
-💬 Conta 2 – Testar função de mensagens
-👨‍🏫 Nome do usuário: Professor Lucas
-📧 E-mail: lucasprof@gmail.com
-🔒 Senha: 654321
+💬 **Conta 2 – Testar função de mensagens**  
+👨‍🏫 Nome do usuário: Professor Lucas  
+📧 E-mail: lucasprof@gmail.com  
+🔒 Senha: 654321  
 
-🖤 Identidade Visual
-Este aplicativo possui uma identidade visual minimalista em preto e branco, seguindo uma estética limpa e elegante, semelhante ao aplicativo X. O design é focado na simplicidade, com destaque para a tipografia e elementos visuais modernos. A logo “Ryce” representa bem essa proposta, mantendo um visual sofisticado e impactante.
+---
 
+# Ryce
+
+<img src="b0aa63fd-3123-4baf-b4f8-c415cbfd864f.png" alt="Logo Ryce" width="300"/>
+
+---
+
+## ✨ Identidade Visual
+
+Nosso projeto **Ryce** adota uma estética **minimalista em preto e branco**, inspirada na elegância visual do aplicativo **X**. A logo utiliza uma tipografia marcante e limpa, representando modernidade e sofisticação.
+
+- 🎨 **Cores principais:**  
+  - Preto (`#000000`) – fundo  
+  - Branco (`#FFFFFF`) – texto e elementos visuais  
+
+- 🖋️ **Estilo:**  
+  Minimalista, direto, moderno e elegante.
+
+- 📱 **Referência de design:**  
+  Inspirado na simplicidade e usabilidade do app **X**, com foco total no conteúdo e na experiência do usuário.
