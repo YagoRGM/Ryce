@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, Alert } from 'react-native';
 import { getAuth } from 'firebase/auth';

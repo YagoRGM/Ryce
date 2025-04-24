@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import { useEffect, useState } from "react";
 import { collection, query, where, onSnapshot, orderBy } from "firebase/firestore";
 import { db } from "../config/FireBaseConfig";

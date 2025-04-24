@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import React, { useEffect, useState } from 'react';
 import { View, ScrollView, Text, StyleSheet, Image, TouchableOpacity, TextInput, FlatList } from 'react-native';
 import { useRoute } from '@react-navigation/native';

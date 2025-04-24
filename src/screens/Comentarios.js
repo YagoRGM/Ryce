@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import React from 'react';
 import { View, Text, StyleSheet, TouchableOpacity } from 'react-native';
 

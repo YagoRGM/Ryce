@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import React, { useState, useEffect } from 'react';
 import { View, Text, StyleSheet, FlatList, TouchableOpacity, Image } from 'react-native';
 import { db } from '../config/FireBaseConfig'; // Certifique-se de que está configurado corretamente

@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, StyleSheet, Image, ActivityIndicator } from 'react-native';
 import { auth, db } from '../config/FireBaseConfig'; // Certifique-se de que a configuração do Firebase está correta

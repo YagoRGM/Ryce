@@ -1,3 +1,4 @@
+// Rian e Yago n28 e n31
 import { registerRootComponent } from 'expo';
 
 import App from './App';
