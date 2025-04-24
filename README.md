@@ -32,6 +32,8 @@ Nosso projeto **Ryce** adota uma estética **minimalista em preto e branco**, in
 - 🎨 **Cores principais:**  
   - Preto (`#000000`) – fundo  
   - Branco (`#FFFFFF`) – texto e elementos visuais  
+  - Cinza (`#A9A9A9`) – elementos das postagens e detalhes sutis
+
 
 - 🖋️ **Estilo:**  
   Minimalista, direto, moderno e elegante.
