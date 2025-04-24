@@ -17,7 +17,8 @@ Se preferir apenas testar rapidamente o funcionamento, utilize uma das credencia
 
 # Ryce
 
-<img src="../../assets/logo.png" alt="Logo Ryce" width="300"/>
+<img src="https://raw.githubusercontent.com/YagoRGM/Ryce/master/assets/logo.png" alt="Logo Ryce" width="300"/>
+
 
 
 
