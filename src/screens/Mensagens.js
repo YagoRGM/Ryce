@@ -32,48 +32,54 @@ export default function Mensagens({ navigation }) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Usuários Cadastrados</Text>
-      {usuarios.length === 0 ? (
-        <Text style={styles.noUsersText}>Nenhum usuário encontrado</Text>
-      ) : (
-        <FlatList
-          data={usuarios}
-          keyExtractor={(item, index) => index.toString()}
-          renderItem={({ item }) => (
-            <TouchableOpacity style={styles.messageContainer} onPress={() => handleChatNavigation(item)}>
-              <Image
-                source={{ uri: item.foto || 'https://via.placeholder.com/50' }} // Foto de perfil ou imagem padrão
-                style={styles.userImage}
-              />
-              <Text style={styles.messageText}>{item.nome}</Text>
-            </TouchableOpacity>
-          )}
-        />
+  <Text style={styles.text}>Usuários Cadastrados</Text>
+  {usuarios.length === 0 ? (
+    <Text style={styles.noUsersText}>Nenhum usuário encontrado</Text>
+  ) : (
+    <FlatList
+      contentContainerStyle={styles.listContent}
+      data={usuarios}
+      keyExtractor={(item, index) => index.toString()}
+      renderItem={({ item }) => (
+        <TouchableOpacity style={styles.messageContainer} onPress={() => handleChatNavigation(item)}>
+          <Image
+            source={{ uri: item.foto || 'https://i.pinimg.com/236x/a8/da/22/a8da222be70a71e7858bf752065d5cc3.jpg' }}
+            style={styles.userImage}
+          />
+          <Text style={styles.messageText}>{item.nome}</Text>
+        </TouchableOpacity>
       )}
-    </View>
+    />
+  )}
+</View>
+
   );
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212', // fundo escuro
-    padding: 20,
+    backgroundColor: '#121212',
   },
   text: {
-    color: '#09b391',
+    color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
-    marginBottom: 20,
+    padding: 30,
   },
   noUsersText: {
     color: '#fff',
     fontSize: 18,
     textAlign: 'center',
   },
+  listContent: {
+    paddingBottom: 20,
+  },
   messageContainer: {
+    width: '90%', // Garante uma largura consistente para centralizar
     flexDirection: 'row',
-    alignItems: 'center',
+    alignSelf: 'center',
+    textAlign: 'center',
     backgroundColor: '#1C1C1C',
     padding: 15,
     borderRadius: 10,
@@ -88,5 +94,6 @@ const styles = StyleSheet.create({
   messageText: {
     color: '#fff',
     fontSize: 18,
-  },
+    marginTop: 12,
+  },  
 });

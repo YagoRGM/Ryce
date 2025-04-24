@@ -13,7 +13,7 @@ export default function Login() {
 
   const handleLogin = async () => {
     if (!email || !senha) {
-      alert('Erro', 'Preencha todos os campos');
+      alert('Erro, Preencha todos os campos');
       return;
     }
 
@@ -53,7 +53,7 @@ export default function Login() {
 
       <TouchableOpacity style={styles.botao} onPress={handleLogin}>
         {loading ? (
-          <ActivityIndicator color="#fff" />
+          <ActivityIndicator color="#000" />
         ) : (
           <Text style={styles.textoBotao}>Entrar</Text>
         )}

@@ -91,7 +91,7 @@ export default function Inicio({ navigation }) {
         <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.headerText}>Para você</Text>
         <TouchableOpacity onPress={() => navigation.navigate('Mensagens')}>
-          <Ionicons name="chatbubble-ellipses-outline" size={30} color="#000" />
+          <Ionicons name="chatbubble-ellipses-outline" size={30} color="white" />
         </TouchableOpacity>
       </View>
 
@@ -106,7 +106,7 @@ export default function Inicio({ navigation }) {
           hovered && styles.plusButtonHover
         ]}
       >
-        <Ionicons name="add-outline" size={34} color="white" />
+        <Ionicons name="add-outline" size={34} color="black" />
       </Pressable>
 
       {loading ? (
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   logo: {
-    width: 30, // Ajustado para o mesmo tamanho do ícone
-    height: 21, // Proporcional ao tamanho original da imagem
+    width: 44, // Ajustado para o mesmo tamanho do ícone
+    height: 32, // Proporcional ao tamanho original da imagem
   },
 });

@@ -37,14 +37,35 @@ export default function Notificacoes() {
           <View key={n.id} style={styles.card}>
             <View style={styles.cardContent}>
               <Ionicons
-                name={n.tipo === "curtida" ? "heart-outline" : "chatbubble-ellipses-outline"}
+                name={
+                  n.tipo === "curtida"
+                    ? "heart-outline"
+                    : n.tipo === "comentario"
+                      ? "chatbubble-ellipses-outline"
+                      : "chatbubble-outline"
+                }
                 size={24}
-                color={n.tipo === "curtida" ? "red" : "gray"}
+                color={
+                  n.tipo === "curtida"
+                    ? "red"
+                    : n.tipo === "comentario"
+                      ? "gray"
+                      : "blue"
+                }
               />
               <Text style={styles.notificationText}>
                 <Text style={styles.username}>{n.nomeUsuario}</Text>{" "}
-                {n.tipo === "curtida" ? "curtiu" : "comentou"} seu post
+                {n.tipo === "curtida"
+                  ? "curtiu seu post"
+                  : n.tipo === "comentario"
+                    ? "comentou em seu post"
+                    : "enviou uma mensagem para você"}
               </Text>
+
+              {/* Exibir a mensagem (caso seja um comentário ou mensagem) */}
+              {(n.tipo === "comentario" || n.tipo === "mensagem") && (
+                <Text style={styles.messageText}>{n.mensagem}</Text>
+              )}
             </View>
           </View>
         ))
@@ -87,5 +108,11 @@ const styles = StyleSheet.create({
   },
   username: {
     fontWeight: "bold",
+  },
+  messageText: {
+    color: "#aaa",
+    fontSize: 14,
+    marginLeft: 10,
+    marginTop: 5,
   },
 });

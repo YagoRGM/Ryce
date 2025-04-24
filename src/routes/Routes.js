@@ -38,7 +38,7 @@ export default function Routes() {
             <Stack.Navigator
                 screenOptions={{
                     headerStyle: { backgroundColor: '#1C1C1C' },
-                    headerTintColor: '#09b391', // cor do texto do header
+                    headerTintColor: '#fff', // cor do texto do header
                     headerTitleStyle: { fontWeight: 'bold' }
                 }}
             >

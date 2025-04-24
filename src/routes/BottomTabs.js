@@ -18,7 +18,7 @@ export default function Tabs() {
           else if (route.name === 'Notificacoes') iconName = 'notifications';
           else if (route.name === 'Perfil') iconName = 'person';
 
-          return <Ionicons name={iconName} size={size} color="#fff" />; // Ícones brancos
+          return <Ionicons name={iconName} size={size} color={color} />;
         },
         headerShown: false,
         tabBarShowLabel: false,
@@ -26,7 +26,7 @@ export default function Tabs() {
           backgroundColor: '#1C1C1C',
         },
         tabBarInactiveTintColor: 'gray',
-        tabBarActiveTintColor: '#09b391', // Cor dos ícones quando ativos
+        tabBarActiveTintColor: 'white',
       })}
     >
       <Tab.Screen name="Inicio" component={Inicio} />

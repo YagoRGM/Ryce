@@ -4,6 +4,7 @@ import { getAuth, signOut } from 'firebase/auth';
 import { getFirestore, doc, getDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
 import Swal from 'sweetalert2';
+import Ionicons from 'react-native-vector-icons/Ionicons';
 
 export default function Perfil() {
   const [user, setUser] = useState(null);
@@ -68,6 +69,7 @@ export default function Perfil() {
 
   return (
     <View style={styles.container}>
+      <Text style={styles.title}>Perfil</Text>
       <View style={styles.profileContainer}>
         <Image
           source={{ uri: user.foto }}
@@ -85,8 +87,10 @@ export default function Perfil() {
       </TouchableOpacity>
 
       <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
+        <Ionicons name="exit-outline" size={20} color="#fff" style={{ marginRight: 8 }} />
         <Text style={styles.logoutText}>Sair da conta</Text>
       </TouchableOpacity>
+
     </View>
   );
 }
@@ -94,60 +98,82 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000', // Fundo preto
+    backgroundColor: '#121212',
+    justifyContent: 'center',
+    alignItems: 'center',
     padding: 20,
   },
+  title: {
+    color: "#fff",
+    fontSize: 27,
+    fontWeight: "bold",
+    marginBottom: 20,
+  },
   profileContainer: {
+    backgroundColor: '#1e1e1e',
+    padding: 25,
+    borderRadius: 20,
+    width: '100%',
     alignItems: 'center',
-    marginTop: 50,
+    shadowColor: '#000',
+    shadowOffset: { width: 0, height: 4 },
+    shadowOpacity: 0.3,
+    shadowRadius: 6,
+    elevation: 10,
   },
   profileImage: {
     width: 120,
     height: 120,
     borderRadius: 60,
     marginBottom: 20,
-    borderWidth: 2,
-    borderColor: '#fff', // Borda branca
+    borderWidth: 3,
+    borderColor: '#fff',
   },
   userName: {
-    color: '#fff', // Texto branco
-    fontSize: 22,
+    color: '#fff',
+    fontSize: 24,
     fontWeight: 'bold',
   },
   userEmail: {
-    color: '#ccc', // Texto cinza claro
+    color: '#ccc',
+    fontSize: 16,
     marginTop: 5,
   },
   userBio: {
-    color: '#aaa', // Texto cinza
-    fontSize: 16,
-    marginTop: 10,
-    paddingHorizontal: 20,
+    color: '#aaa',
+    fontSize: 15,
+    marginTop: 15,
+    paddingHorizontal: 10,
     textAlign: 'center',
     fontStyle: 'italic',
   },
   editProfileButton: {
-    backgroundColor: '#fff', // Botão branco
+    backgroundColor: '#fff',
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
-    marginTop: 20,
+    marginTop: 30,
+    width: '100%',
   },
   editProfileText: {
-    color: '#000', // Texto preto
+    color: '#000',
     fontSize: 16,
     fontWeight: 'bold',
   },
   logoutButton: {
-    backgroundColor: '#fff', // Botão branco
+    backgroundColor: 'red',
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 12,
     alignItems: 'center',
-    marginTop: 40,
+    justifyContent: 'center',
+    flexDirection: 'row',
+    marginTop: 15,
+    width: '100%',
   },
   logoutText: {
-    color: '#000', // Texto preto
+    color: '#fff',
     fontSize: 16,
     fontWeight: 'bold',
   },
 });
+

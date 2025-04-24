@@ -88,7 +88,7 @@ export default function Cadastro() {
 
       <TouchableOpacity style={styles.botao} onPress={handleCadastro}>
         {loading ? (
-          <ActivityIndicator color="#fff" />
+          <ActivityIndicator color="#000" />
         ) : (
           <Text style={styles.textoBotao}>Cadastrar</Text>
         )}

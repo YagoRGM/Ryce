@@ -169,7 +169,7 @@ export default function EditarPerfil() {
 
       <TouchableOpacity style={styles.botao} onPress={handleUpdateProfile}>
         {loading ? (
-          <ActivityIndicator color="#fff" />
+          <ActivityIndicator color="#000" />
         ) : (
           <Text style={styles.textoBotao}>Salvar Alterações</Text>
         )}

@@ -1,8 +1,9 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { View, Text, StyleSheet, TextInput, Pressable, FlatList, KeyboardAvoidingView, Platform } from 'react-native';
 import { db } from '../config/FireBaseConfig'; // Certifique-se de que está configurado corretamente
-import { collection, query, where, orderBy, onSnapshot, addDoc, doc, setDoc } from 'firebase/firestore';
+import { collection, query, where, orderBy, onSnapshot, addDoc, doc, setDoc, serverTimestamp } from 'firebase/firestore';
 import { getAuth } from 'firebase/auth';
+import { criarNotificacao } from "../utils/criarNotificacao";
 
 export default function Conversa({ route }) {
   const { userId, userName, userPhoto } = route.params;
@@ -36,6 +37,23 @@ export default function Conversa({ route }) {
     return () => unsubscribe();
   }, [conversationId]);
 
+  const criarNotificacao = async (remetenteUid, destinatarioUid, conteudo) => {
+    try {
+      await addDoc(collection(db, 'notificacoes'), {
+        idPost: null,  // Não é um post, então podemos deixar null ou remover se não necessário
+        idUsuarioAcao: remetenteUid,
+        idUsuarioAlvo: destinatarioUid,
+        nomeUsuario: auth.currentUser.displayName,  // Nome do usuário autenticado (remetente)
+        tipo: "mensagem",  // Tipo "mensagem"
+        lido: false,
+        timestamp: serverTimestamp(),  // Corrigido com a importação
+      });
+    } catch (error) {
+      console.error('Erro ao criar notificação:', error);
+    }
+  };
+
+
   useEffect(() => {
     // Rola para o final da lista de mensagens sempre que o estado de 'messages' mudar
     if (flatListRef.current) {
@@ -46,17 +64,22 @@ export default function Conversa({ route }) {
   const handleSendMessage = async () => {
     if (newMessage.trim() === '') return;
 
-    // Cria um documento de mensagem no banco de dados
-    await addDoc(collection(db, 'messages'), {
-      text: newMessage,
-      senderId: uid,
-      receiverId: userId,
-      timestamp: new Date(),
-      conversationId: conversationId,  // Adiciona o ID da conversa
-      users: [uid, userId],  // Define os usuários envolvidos na conversa
-    });
+    try {
+      await addDoc(collection(db, 'messages'), {
+        text: newMessage,
+        senderId: uid,
+        receiverId: userId,
+        timestamp: new Date(),
+        conversationId: conversationId,
+        users: [uid, userId],
+      });
 
-    setNewMessage('');  // Limpar campo de texto após enviar a mensagem
+      await criarNotificacao(uid, userId, newMessage);
+
+      setNewMessage('');
+    } catch (error) {
+      console.error('Erro ao enviar mensagem:', error);
+    }
   };
 
   return (
@@ -97,7 +120,7 @@ const styles = StyleSheet.create({
     paddingTop: 20,
   },
   header: {
-    color: '#09b391',
+    color: '#fff',
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 10,
@@ -112,9 +135,11 @@ const styles = StyleSheet.create({
   },
   sentMessage: {
     alignSelf: 'flex-end', // Mensagens enviadas ficam à direita
+    backgroundColor: '#2A2E35',
   },
   receivedMessage: {
     alignSelf: 'flex-start', // Mensagens recebidas ficam à esquerda
+    backgroundColor: '#1C1C1C',
   },
   messageText: {
     color: '#fff',
@@ -146,5 +171,5 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontWeight: 'bold',
     fontSize: 16,
-  },  
+  },
 });
