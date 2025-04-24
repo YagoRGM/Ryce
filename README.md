@@ -17,7 +17,8 @@ Se preferir apenas testar rapidamente o funcionamento, utilize uma das credencia
 
 # Ryce
 
-![Logo Ryce](../../assets/logo.png)
+<img src="../../assets/logo.png" alt="Logo Ryce" width="300"/>
+
 
 
 
