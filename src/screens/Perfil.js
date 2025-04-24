@@ -28,7 +28,6 @@ export default function Perfil() {
             bio: userData.bio || '',
           });
         } else {
-          // Caso não encontre o documento, ainda exibe as infos básicas
           setUser({
             uid: currentUser.uid,
             email: currentUser.email,
@@ -81,14 +80,11 @@ export default function Perfil() {
         <Text style={styles.userBio}>{user.bio || 'Sem biografia.'}</Text>
       </View>
 
-      <TouchableOpacity onPress={() => navigation.navigate('EditarPerfil')}>
-        <Text style={styles.editProfileButton}>Editar Perfil</Text>
+      <TouchableOpacity onPress={() => navigation.navigate('EditarPerfil')} style={styles.editProfileButton}>
+        <Text style={styles.editProfileText}>Editar Perfil</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity
-        onPress={handleLogout}
-        style={styles.logoutButton}
-      >
+      <TouchableOpacity onPress={handleLogout} style={styles.logoutButton}>
         <Text style={styles.logoutText}>Sair da conta</Text>
       </TouchableOpacity>
     </View>
@@ -98,7 +94,7 @@ export default function Perfil() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#0d0d0d',
+    backgroundColor: '#000', // Fundo preto
     padding: 20,
   },
   profileContainer: {
@@ -111,19 +107,19 @@ const styles = StyleSheet.create({
     borderRadius: 60,
     marginBottom: 20,
     borderWidth: 2,
-    borderColor: '#fff',
+    borderColor: '#fff', // Borda branca
   },
   userName: {
-    color: '#fff',
+    color: '#fff', // Texto branco
     fontSize: 22,
     fontWeight: 'bold',
   },
   userEmail: {
-    color: '#ccc',
+    color: '#ccc', // Texto cinza claro
     marginTop: 5,
   },
   userBio: {
-    color: '#aaa',
+    color: '#aaa', // Texto cinza
     fontSize: 16,
     marginTop: 10,
     paddingHorizontal: 20,
@@ -131,21 +127,26 @@ const styles = StyleSheet.create({
     fontStyle: 'italic',
   },
   editProfileButton: {
-    color: '#00b894',
+    backgroundColor: '#fff', // Botão branco
+    padding: 15,
+    borderRadius: 10,
+    alignItems: 'center',
+    marginTop: 20,
+  },
+  editProfileText: {
+    color: '#000', // Texto preto
     fontSize: 16,
     fontWeight: 'bold',
-    marginTop: 20,
-    textAlign: 'center',
   },
   logoutButton: {
-    backgroundColor: '#e50914',
-    marginTop: 40,
+    backgroundColor: '#fff', // Botão branco
     padding: 15,
-    borderRadius: 12,
+    borderRadius: 10,
     alignItems: 'center',
+    marginTop: 40,
   },
   logoutText: {
-    color: '#fff',
+    color: '#000', // Texto preto
     fontSize: 16,
     fontWeight: 'bold',
   },

@@ -206,27 +206,27 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   botao: {
-    backgroundColor: '#00b894',
-    padding: 15,
+    backgroundColor: '#fff', // Botão branco
+    padding: 12,
     width: '100%',
-    borderRadius: 10,
+    borderRadius: 5,
     alignItems: 'center',
     marginTop: 10,
   },
   textoBotao: {
-    color: '#fff',
+    color: '#000', // Texto preto
     fontSize: 16,
     fontWeight: 'bold',
   },
   link: {
     marginTop: 20,
-    color: '#aaa',
+    color: '#fff', // Texto branco
     textDecorationLine: 'underline',
   },
   fotoPerfilContainer: {
-    backgroundColor: '#1e1e1e',
-    borderRadius: 50,
-    padding: 20,
+    backgroundColor: '#fff', // Fundo branco
+    borderRadius: 75,
+    padding: 10,
     marginBottom: 20,
     alignItems: 'center',
     justifyContent: 'center',
@@ -239,7 +239,7 @@ const styles = StyleSheet.create({
     borderRadius: 60,
   },
   textoFoto: {
-    color: '#999',
-    fontSize: 16,
+    color: '#000', // Texto preto
+    fontSize: 14,
   },
 });

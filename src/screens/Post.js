@@ -129,8 +129,8 @@ export default function Post({ navigation }) {
         <Text style={styles.buttonText}>Escolher Imagem (opcional)</Text>
       </TouchableOpacity>
 
-      <TouchableOpacity onPress={postar} style={[styles.button, { backgroundColor: '#09b391' }]}>
-        <Text style={styles.buttonText}>Publicar</Text>
+      <TouchableOpacity onPress={postar} style={[styles.button, { backgroundColor: '#fff' }]}>
+        <Text style={[styles.buttonText, { color: '#000' }]}>Publicar</Text>
       </TouchableOpacity>
     </View>
   );
@@ -139,18 +139,18 @@ export default function Post({ navigation }) {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#000', // Fundo preto
     padding: 20,
   },
   title: {
-    color: '#fff',
+    color: '#fff', // Texto branco
     fontSize: 22,
     marginBottom: 20,
   },
   input: {
-    color: '#fff',
+    color: '#fff', // Texto branco
     fontSize: 16,
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#111', // Fundo preto
     padding: 10,
     borderRadius: 10,
     height: 120,
@@ -158,13 +158,14 @@ const styles = StyleSheet.create({
   },
   button: {
     marginTop: 15,
-    backgroundColor: '#333',
+    backgroundColor: '#fff', // Botão branco
     padding: 12,
     borderRadius: 10,
     alignItems: 'center',
   },
   buttonText: {
-    color: '#fff',
+    color: '#000', // Texto preto
+    fontSize: 16,
   },
   previewImage: {
     marginTop: 15,

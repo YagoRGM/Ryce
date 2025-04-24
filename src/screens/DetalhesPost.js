@@ -314,13 +314,13 @@ const styles = StyleSheet.create({
         marginRight: 10,
     },
     botaoEnviar: {
-        backgroundColor: '#3b82f6',
+        backgroundColor: '#fff', // Botão branco
         paddingVertical: 10,
         paddingHorizontal: 15,
         borderRadius: 8,
     },
     enviarTexto: {
-        color: '#fff',
+        color: '#000', // Texto preto
         fontWeight: 'bold',
     },
 });

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator } from 'react-native';
+import { View, Text, TextInput, TouchableOpacity, StyleSheet, Alert, ActivityIndicator, Image } from 'react-native';
 import { auth } from '../config/FireBaseConfig';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigation } from '@react-navigation/native';
@@ -30,7 +30,7 @@ export default function Login() {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.titulo}>Ryce</Text>
+      <Image source={require('../../assets/logo.png')} style={styles.logo} />
 
       <TextInput
         style={styles.input}
@@ -74,10 +74,9 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
-  titulo: {
-    fontSize: 40,
-    fontWeight: 'bold',
-    color: '#fff',
+  logo: {
+    width: 100, // Largura da logo
+    height: 70, // Altura proporcional
     marginBottom: 40,
   },
   input: {
@@ -90,15 +89,15 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   botao: {
-    backgroundColor: '#09b391',
+    backgroundColor: '#fff', // Botão branco
     padding: 15,
     width: '100%',
-    borderRadius: 10,
+    borderRadius: 5,
     alignItems: 'center',
     marginTop: 10,
   },
   textoBotao: {
-    color: '#fff',
+    color: '#000', // Texto preto
     fontSize: 16,
     fontWeight: 'bold',
   },

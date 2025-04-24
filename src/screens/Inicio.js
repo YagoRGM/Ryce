@@ -73,10 +73,10 @@ export default function Inicio({ navigation }) {
             duration={400}
           >
             <TouchableOpacity
-              style={[styles.likeButton, { backgroundColor: '#00b894' }]} // Cor ciano
+              style={[styles.likeButton, { backgroundColor: '#fff' }]} // Cor ciano
               onPress={() => navigation.navigate('Detalhes', { post })} // Navega para DetalhesPost
             >
-              <Text style={styles.likeButtonText}>❤️ Ver Detalhes</Text>
+              <Text style={styles.likeButtonText}>Ver Detalhes</Text>
             </TouchableOpacity>
           </Animatable.View>
         </TouchableOpacity>
@@ -88,15 +88,10 @@ export default function Inicio({ navigation }) {
     <View style={styles.container}>
       {/* HEADER */}
       <View style={styles.header}>
-        <TouchableOpacity onPress={() => console.log('Logo clicada')}>
-          {/* Aqui vai sua logo, substitua por sua imagem */}
-          <Ionicons name="logo-twitter" size={30} color="white" />
-        </TouchableOpacity>
-
+        <Image source={require('../../assets/logo.png')} style={styles.logo} />
         <Text style={styles.headerText}>Para você</Text>
-
         <TouchableOpacity onPress={() => navigation.navigate('Mensagens')}>
-          <Ionicons name="chatbubble-ellipses-outline" size={30} color="white" />
+          <Ionicons name="chatbubble-ellipses-outline" size={30} color="#000" />
         </TouchableOpacity>
       </View>
 
@@ -155,7 +150,7 @@ const styles = StyleSheet.create({
     margin: 20,
   },
   createPostButton: {
-    backgroundColor: '#09b391',
+    backgroundColor: '#fff', // Botão branco
     zIndex: 5,
     bottom: 20,
     padding: 15,
@@ -165,7 +160,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
   },
   createPostText: {
-    color: '#fff',
+    color: '#000', // Texto preto
     fontSize: 16,
   },
   plusButton: {
@@ -175,7 +170,7 @@ const styles = StyleSheet.create({
     right: 20,
     width: 60,
     height: 60,
-    backgroundColor: '#09b391',
+    backgroundColor: '#fff', // Botão branco
     borderRadius: 30,
     justifyContent: 'center',
     alignItems: 'center',
@@ -186,7 +181,7 @@ const styles = StyleSheet.create({
     transform: [{ scale: 1.15 }],
   },
   plusText: {
-    color: '#fff',
+    color: '#000', // Ícone preto
     fontSize: 30,
     fontWeight: 'bold',
   },
@@ -250,13 +245,17 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   likeButton: {
-    backgroundColor: '#ff5555',
+    backgroundColor: '#fff', // Botão branco
     padding: 10,
     borderRadius: 5,
     alignItems: 'center',
   },
   likeButtonText: {
-    color: '#fff',
+    color: '#000', // Texto preto
     fontSize: 16,
+  },
+  logo: {
+    width: 30, // Ajustado para o mesmo tamanho do ícone
+    height: 21, // Proporcional ao tamanho original da imagem
   },
 });

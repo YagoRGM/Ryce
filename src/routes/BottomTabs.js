@@ -18,7 +18,7 @@ export default function Tabs() {
           else if (route.name === 'Notificacoes') iconName = 'notifications';
           else if (route.name === 'Perfil') iconName = 'person';
 
-          return <Ionicons name={iconName} size={size} color={color} />;
+          return <Ionicons name={iconName} size={size} color="#fff" />; // Ícones brancos
         },
         headerShown: false,
         tabBarShowLabel: false,

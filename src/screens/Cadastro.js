@@ -3,12 +3,11 @@ import { View, Text, TextInput, TouchableOpacity, StyleSheet, ActivityIndicator 
 import { getAuth, createUserWithEmailAndPassword } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { useNavigation } from '@react-navigation/native';
-import Swal from 'sweetalert2'; // Importando o SweetAlert2
-import { auth, db } from '../config/FireBaseConfig'; // Certifique-se de que o FireBaseConfig está configurado corretamente
+import Swal from 'sweetalert2';
+import { auth, db } from '../config/FireBaseConfig';
 
 export default function Cadastro() {
   const navigation = useNavigation();
-
   const [email, setEmail] = useState('');
   const [senha, setSenha] = useState('');
   const [nome, setNome] = useState('');
@@ -27,11 +26,9 @@ export default function Cadastro() {
 
     setLoading(true);
     try {
-      // Criação do usuário no Firebase Auth
       const userCredential = await createUserWithEmailAndPassword(auth, email, senha);
       const user = userCredential.user;
 
-      // Salvando o nome do usuário no Firestore
       await setDoc(doc(db, 'users', user.uid), {
         nome: nome,
         email: email,
@@ -44,7 +41,7 @@ export default function Cadastro() {
         icon: 'success',
         confirmButtonText: 'Ir para o Início',
       }).then(() => {
-        navigation.navigate('Inicio'); // tentei redirecionar pro login mas nao vai aaaaaaaaaa
+        navigation.navigate('Inicio');
       });
     } catch (error) {
       Swal.fire({
@@ -65,7 +62,7 @@ export default function Cadastro() {
       <TextInput
         style={styles.input}
         placeholder="Nome"
-        placeholderTextColor="#999"
+        placeholderTextColor="#ccc"
         value={nome}
         onChangeText={setNome}
       />
@@ -73,7 +70,7 @@ export default function Cadastro() {
       <TextInput
         style={styles.input}
         placeholder="Email"
-        placeholderTextColor="#999"
+        placeholderTextColor="#ccc"
         keyboardType="email-address"
         autoCapitalize="none"
         value={email}
@@ -83,7 +80,7 @@ export default function Cadastro() {
       <TextInput
         style={styles.input}
         placeholder="Senha"
-        placeholderTextColor="#999"
+        placeholderTextColor="#ccc"
         secureTextEntry
         value={senha}
         onChangeText={setSenha}
@@ -107,42 +104,44 @@ export default function Cadastro() {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#121212',
+    backgroundColor: '#000',
     alignItems: 'center',
     justifyContent: 'center',
     paddingHorizontal: 20,
   },
   titulo: {
-    fontSize: 32,
+    fontSize: 28,
     fontWeight: 'bold',
     color: '#fff',
     marginBottom: 30,
   },
   input: {
-    backgroundColor: '#1e1e1e',
+    backgroundColor: '#111',
     color: '#fff',
     width: '100%',
     padding: 15,
-    borderRadius: 10,
+    borderRadius: 5,
     marginBottom: 15,
     fontSize: 16,
+    borderWidth: 1,
+    borderColor: '#333',
   },
   botao: {
-    backgroundColor: '#09b391',
+    backgroundColor: '#fff', // Botão branco
     padding: 15,
     width: '100%',
-    borderRadius: 10,
+    borderRadius: 5,
     alignItems: 'center',
     marginTop: 10,
   },
   textoBotao: {
-    color: '#fff',
+    color: '#000', // Texto preto
     fontSize: 16,
     fontWeight: 'bold',
   },
   link: {
     marginTop: 20,
-    color: '#aaa',
+    color: '#ccc',
     textDecorationLine: 'underline',
   },
 });

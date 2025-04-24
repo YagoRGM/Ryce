@@ -1,10 +1,10 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Image, StyleSheet } from 'react-native';
 
 export default function Splash() {
   return (
     <View style={styles.container}>
-      <Text style={styles.text}>Página: Splash</Text>
+      <Image source={require('../../assets/logo.png')} style={styles.logo} />
     </View>
   );
 }
@@ -14,10 +14,10 @@ const styles = StyleSheet.create({
     flex: 1,
     backgroundColor: '#121212', // fundo escuro
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
   },
-  text: {
-    color: '#fff',
-    fontSize: 20
-  }
+  logo: {
+    width: 559,
+    height: 420,
+  },
 });
