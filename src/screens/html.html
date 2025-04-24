@@ -1,0 +1,37 @@
+<input type="file" id="fileInput" />
+<button onclick="uploadFile()">Enviar imagem</button>
+
+<script>
+  async function uploadFile() {
+    const fileInput = document.getElementById('fileInput');
+    const file = fileInput.files[0];
+
+    if (!file) {
+      alert("Escolha uma imagem!");
+      return;
+    }
+
+    const fileName = `img-perfil/${Date.now()}-${file.name}`;
+    const bucketUrl = `https://app-ryce.s3.amazonaws.com/${fileName}`;
+
+    try {
+      const response = await fetch(bucketUrl, {
+        method: 'PUT',
+        body: file,
+        headers: {
+          'Content-Type': file.type
+        }
+      });
+
+      if (response.ok) {
+        alert("Imagem enviada com sucesso!");
+        console.log("URL da imagem:", bucketUrl);
+      } else {
+        alert("Erro ao enviar imagem.");
+        console.log(await response.text());
+      }
+    } catch (err) {
+      console.error("Erro ao enviar:", err);
+    }
+  }
+</script>
